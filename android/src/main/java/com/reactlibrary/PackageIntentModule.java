@@ -22,6 +22,14 @@ public class PackageIntentModule extends ReactContextBaseJavaModule {
             getReactApplicationContext().startActivity(intent);
         }
     }
+    
+    @ReactMethod
+    public void startHuaweiIntent() {
+        Intent intent = new Intent();
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.setClassName("com.huawei.systemmanager", "com.huawei.systemmanager.optimize.process.ProtectActivity");
+        getReactApplicationContext().startActivity(intent);
+    }
 
     @ReactMethod
     public void canStartIntent(String packageName, Callback callback) {
